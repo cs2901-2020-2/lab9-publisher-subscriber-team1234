@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class MessageBroker {
     private static MessageBroker instance;
-    private HashMap<String, List<Subscriber>> subscribers = new HashMap<String, List<Subscriber>>();
+    private static HashMap<String, List<Subscriber>> subscribers = new HashMap<String, List<Subscriber>>();
     private static int semaphore = 0;
     private MessageBroker (){};
     public void registerSubscriber (Subscriber s, String channel) {
@@ -15,7 +15,7 @@ public class MessageBroker {
     public void removeSubscriber (Subscriber s, String channel) {
         subscribers.get(channel).remove(s);
     }
-    public void notifySubscriber (String message, String channel) {
+    public static void notifySubscribers (String message, String channel) {
         subscribers.get(channel).forEach(displayMessage );
     }
 
