@@ -6,9 +6,9 @@ import java.util.Map;
 
 public class MessageBroker {
     private static MessageBroker instance;
-    private static HashMap<String, List<Subscriber>> subscribers = new HashMap<String, List<Subscriber>>();
+    public static HashMap<String, List<Subscriber>> subscribers = new HashMap<>();
     private static int semaphore = 0;
-    private MessageBroker (){};
+    private MessageBroker (){}
     public void registerSubscriber (Subscriber s, String channel) {
         subscribers.get(channel).add(s);
     }
