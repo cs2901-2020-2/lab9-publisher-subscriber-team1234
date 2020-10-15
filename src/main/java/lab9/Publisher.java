@@ -6,7 +6,7 @@ public class Publisher {
     String canal;
 
     public void publish(String mensaje, String canal) {
-        MessageBroker.enviarMessage(mensaje, canal);
+        MessageBroker.notifySubscribers(mensaje, canal);
     }
 
 }
