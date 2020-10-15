@@ -22,7 +22,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7bb2903c-6560-47e3-832d-8b4ba8921a3a" name="Default Changelist" comment="tests Basicos revisar funciones" />
+    <list default="true" id="7bb2903c-6560-47e3-832d-8b4ba8921a3a" name="Default Changelist" comment="tests Basicos revisar funciones">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab9/MessageBroker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab9/MessageBroker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab9/Publisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab9/Publisher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab9/Subscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab9/Subscriber.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -132,10 +137,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/-1600.4.1600.860@0.0.1920.1040" timestamp="1602765678316" />
-    <state x="598" y="281" key="MultipleFileMergeDialog" timestamp="1602690955498">
+    <state x="598" y="281" key="MultipleFileMergeDialog" timestamp="1602766149645">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="598" y="281" key="MultipleFileMergeDialog/0.0.1920.1040/-1600.4.1600.860@0.0.1920.1040" timestamp="1602690955498" />
+    <state x="598" y="281" key="MultipleFileMergeDialog/0.0.1920.1040/-1600.4.1600.860@0.0.1920.1040" timestamp="1602766149645" />
     <state x="841" y="240" key="RollbackChangesDialog" timestamp="1602765335572">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -148,9 +153,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="807" y="433" key="VCS.ChangelistChooser/0.0.1920.1040/-1600.4.1600.860@0.0.1920.1040" timestamp="1602765364461" />
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602765968783">
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602766130786">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1600.4.1600.860@0.0.1920.1040" timestamp="1602765968783" />
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1600.4.1600.860@0.0.1920.1040" timestamp="1602766130786" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1602766285548">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-1600.4.1600.860@0.0.1920.1040" timestamp="1602766285548" />
   </component>
 </project>

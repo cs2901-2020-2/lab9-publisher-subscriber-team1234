@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 public class MessageBrokerTest {
     @Test
     public void testSubscriberSingleThread(){
-        Subscriber subscriber1 = new Subscriber();
+        Subscriber subscriber1 = new Subscriber("sub1");
         Publisher publisher1 = new Publisher();
         MessageBroker messageBroker = MessageBroker.getInstance();
 
@@ -24,10 +24,10 @@ public class MessageBrokerTest {
 
     @Test
     public void testSubscriberMultipleSingleThread(){
-        Subscriber subscriber1 = new Subscriber();
-        Subscriber subscriber2 = new Subscriber();
-        Subscriber subscriber3 = new Subscriber();
-        Subscriber subscriber4 = new Subscriber();
+        Subscriber subscriber1 = new Subscriber("sub1");
+        Subscriber subscriber2 = new Subscriber("sub2");
+        Subscriber subscriber3 = new Subscriber("sub3");
+        Subscriber subscriber4 = new Subscriber("sub4");
 
         Publisher publisher1 = new Publisher();
 
@@ -52,7 +52,7 @@ public class MessageBrokerTest {
 
     @Test
     public void testMultiplePublisher(){
-        Subscriber subscriber1 = new Subscriber();
+        Subscriber subscriber1 = new Subscriber("sub1");
 
         Publisher publisher1 = new Publisher();
         Publisher publisher2 = new Publisher();

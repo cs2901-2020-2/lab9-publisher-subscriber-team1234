@@ -8,7 +8,7 @@ public class MultithreadMessageBrokerTest {
 
     @Test(threadPoolSize = 500, invocationCount = 500)
     public void testSubscriberMultiThread(){
-        Subscriber subscriber1 = new Subscriber();
+        Subscriber subscriber1 = new Subscriber("sub1");
         Publisher publisher1 = new Publisher();
         MessageBroker messageBroker = MessageBroker.getInstance();
 
@@ -25,10 +25,10 @@ public class MultithreadMessageBrokerTest {
 
     @Test(threadPoolSize = 500, invocationCount = 500)
     public void testSubscriberMultipleMultiThread(){
-        Subscriber subscriber1 = new Subscriber();
-        Subscriber subscriber2 = new Subscriber();
-        Subscriber subscriber3 = new Subscriber();
-        Subscriber subscriber4 = new Subscriber();
+        Subscriber subscriber1 = new Subscriber("sub1");
+        Subscriber subscriber2 = new Subscriber("sub2");
+        Subscriber subscriber3 = new Subscriber("sub3");
+        Subscriber subscriber4 = new Subscriber("sub4");
 
         Publisher publisher1 = new Publisher();
 
