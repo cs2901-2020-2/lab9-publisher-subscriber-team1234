@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MessageBroker.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">lab9-publisher-subscriber-team1234</a> &gt; <a href="index.source.html" class="el_package">lab</a> &gt; <span class="el_source">MessageBroker.java</span></div><h1>MessageBroker.java</h1><pre class="source lang-java linenums">package lab;
+import java.util.HashMap;
+import java.util.List;
+
+<span class="nc" id="L5">public class MessageBroker {</span>
+    private static MessageBroker instance;
+<span class="nc" id="L7">    private HashMap&lt;String, List&lt;Subscriber&gt;&gt; subscribers = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L8">    private static int semaphore = 0;</span>
+
+    public void registerSubscriber (Subscriber s, String channel) {
+<span class="nc" id="L11">        subscribers.get(channel).add(s);</span>
+<span class="nc" id="L12">    }</span>
+
+    public void removeSubscriber (Subscriber s, String channel) {
+<span class="nc" id="L15">        subscribers.get(channel).remove(s);</span>
+<span class="nc" id="L16">    }</span>
+
+    public void notifySubscriber (String message, String channel) {
+<span class="nc bnc" id="L19" title="All 2 branches missed.">        for(Subscriber subs : subscribers.get(channel)){</span>
+<span class="nc" id="L20">            subs.setData(message);</span>
+<span class="nc" id="L21">            subs.displayMessage();</span>
+<span class="nc" id="L22">        }</span>
+<span class="nc" id="L23">    }</span>
+
+    private static synchronized int increaseSemaphore () {
+<span class="nc" id="L26">        int prev = semaphore;</span>
+<span class="nc" id="L27">        semaphore++;</span>
+<span class="nc" id="L28">        return prev;</span>
+    }
+
+    public static MessageBroker getInstance() {
+<span class="nc bnc" id="L32" title="All 2 branches missed.">        if (increaseSemaphore () == 0)</span>
+<span class="nc" id="L33">            instance = new MessageBroker();</span>
+<span class="nc" id="L34">        return instance;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>
