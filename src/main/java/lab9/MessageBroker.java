@@ -1,20 +1,21 @@
 package lab9;
 import java.util.HashMap;
 import java.util.List;
-import java.util.ArrayList;
-import java.util.Map;
 
 public class MessageBroker {
     private static MessageBroker instance;
-    public static HashMap<String, List<Subscriber>> subscribers = new HashMap<>();
+    private static HashMap<String, List<Subscriber>> subscribers = new HashMap<>();
     private static int semaphore = 0;
-    private MessageBroker (){}
+    private MessageBroker (){};
+
     public void registerSubscriber (Subscriber s, String channel) {
         subscribers.get(channel).add(s);
     }
+
     public void removeSubscriber (Subscriber s, String channel) {
         subscribers.get(channel).remove(s);
     }
+
     public static void notifySubscribers (String message, String channel) {
         List<Subscriber> temp = subscribers.get(channel);
         for (Subscriber it : temp) {

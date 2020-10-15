@@ -14,6 +14,24 @@ public class Subscriber {
     }
 
     public void displayMessage (String message) {
-        logger.info (message);
+        logger.info(message);
+    }
+    private String name;
+    private String data;
+
+    public Subscriber(String nameTo){
+        name = nameTo;
+    }
+
+    public void displayMessage(){
+
+    }
+
+    public void setData(String dataTo){
+        data = dataTo;
+    }
+
+    public String getData(){
+        return data;
     }
 }

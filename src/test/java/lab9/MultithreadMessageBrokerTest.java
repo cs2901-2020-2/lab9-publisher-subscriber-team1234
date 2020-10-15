@@ -4,9 +4,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Test
-public class MessageBrokerTest {
-    @Test
-    public void testSubscriberSingleThread(){
+public class MultithreadMessageBrokerTest {
+
+    @Test(threadPoolSize = 500, invocationCount = 500)
+    public void testSubscriberMultiThread(){
         Subscriber subscriber1 = new Subscriber("sub1");
         Publisher publisher1 = new Publisher();
         MessageBroker messageBroker = MessageBroker.getInstance();
@@ -22,8 +23,8 @@ public class MessageBrokerTest {
         Assert.assertNotEquals(subscriber1.getData(),"DataPrueba2");
     }
 
-    @Test
-    public void testSubscriberMultipleSingleThread(){
+    @Test(threadPoolSize = 500, invocationCount = 500)
+    public void testSubscriberMultipleMultiThread(){
         Subscriber subscriber1 = new Subscriber("sub1");
         Subscriber subscriber2 = new Subscriber("sub2");
         Subscriber subscriber3 = new Subscriber("sub3");
@@ -49,29 +50,4 @@ public class MessageBrokerTest {
         Assert.assertNotEquals( subscriber3.getData(),"PruebaCanal1");
         Assert.assertEquals( subscriber4.getData(),"PruebaCanal1");
     }
-
-    @Test
-    public void testMultiplePublisher(){
-        Subscriber subscriber1 = new Subscriber("sub1");
-
-        Publisher publisher1 = new Publisher();
-        Publisher publisher2 = new Publisher();
-        Publisher publisher3 = new Publisher();
-
-        subscriber1.subscribe("Canal1");
-
-        publisher1.publish("PruebaCanal1", "Canal1");
-
-        Assert.assertEquals( subscriber1.getData(),"PruebaCanal1");
-
-        publisher2.publish("PruebaCanal1_V2", "Canal1");
-
-        Assert.assertEquals( subscriber1.getData(),"PruebaCanal1_V2");
-
-        publisher3.publish( "Canal2","PruebaFalsa");
-
-        Assert.assertNotEquals( subscriber1.getData(),"PruebaFalsa");
-    }
-
-
 }
