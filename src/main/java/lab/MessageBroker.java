@@ -1,4 +1,5 @@
 package lab;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -7,18 +8,24 @@ public class MessageBroker {
     private HashMap<String, List<Subscriber>> subscribers = new HashMap<>();
     private static int semaphore = 0;
 
-    public void registerSubscriber (Subscriber s, String channel) {
+    public synchronized void registerSubscriber (Subscriber s, String channel) {
+        if (!subscribers.containsKey(channel)) {
+            List<Subscriber> subs = new ArrayList<Subscriber>();
+            subscribers.put(channel, subs );
+        }
         subscribers.get(channel).add(s);
     }
 
-    public void removeSubscriber (Subscriber s, String channel) {
+    public synchronized void removeSubscriber (Subscriber s, String channel) {
         subscribers.get(channel).remove(s);
     }
 
-    public void notifySubscriber (String message, String channel) {
-        for(Subscriber subs : subscribers.get(channel)){
-            subs.setData(message);
-            subs.displayMessage();
+    public synchronized void notifySubscriber (String message, String channel) {
+        if (subscribers.containsKey(channel)){
+            for(Subscriber subs : subscribers.get(channel)){
+                subs.setData(message);
+                subs.displayMessage();
+            }
         }
     }
 
@@ -28,7 +35,7 @@ public class MessageBroker {
         return prev;
     }
 
-    public static MessageBroker getInstance() {
+    public synchronized static MessageBroker getInstance() {
         if (increaseSemaphore () == 0)
             instance = new MessageBroker();
         return instance;

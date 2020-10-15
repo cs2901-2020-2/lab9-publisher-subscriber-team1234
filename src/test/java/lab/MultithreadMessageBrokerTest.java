@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 @Test
 public class MultithreadMessageBrokerTest {
 
-    @Test(threadPoolSize = 500, invocationCount = 500)
+    @Test(threadPoolSize = 100, invocationCount = 100)
     public void testSubscriberMultiThread(){
         Subscriber subscriber1 = new Subscriber("sub1");
         Publisher publisher1 = new Publisher();
@@ -16,14 +16,10 @@ public class MultithreadMessageBrokerTest {
         publisher1.publish("DataPrueba1", "Canal1");
 
         Assert.assertEquals(subscriber1.getData(),"DataPrueba1");
-
-        messageBroker.removeSubscriber(subscriber1, "Canal1");
-        publisher1.publish("DataPrueba2", "Canal1");
-
-        Assert.assertNotEquals(subscriber1.getData(),"DataPrueba2");
+        
     }
 
-    @Test(threadPoolSize = 500, invocationCount = 500)
+    @Test(threadPoolSize = 100, invocationCount = 100)
     public void testSubscriberMultipleMultiThread(){
         Subscriber subscriber1 = new Subscriber("sub1");
         Subscriber subscriber2 = new Subscriber("sub2");
@@ -43,11 +39,11 @@ public class MultithreadMessageBrokerTest {
         Assert.assertEquals( subscriber3.getData(),"PruebaCanal1");
         Assert.assertNotEquals( subscriber4.getData(),"PruebaCanal1");
 
-        publisher1.publish("PruebaCanal1", "Canal2");
+        publisher1.publish("PruebaCanal2", "Canal2");
 
-        Assert.assertNotEquals( subscriber1.getData(),"PruebaCanal1");
-        Assert.assertNotEquals( subscriber2.getData(),"PruebaCanal1");
-        Assert.assertNotEquals( subscriber3.getData(),"PruebaCanal1");
-        Assert.assertEquals( subscriber4.getData(),"PruebaCanal1");
+        Assert.assertNotEquals( subscriber1.getData(),"PruebaCanal2");
+        Assert.assertNotEquals( subscriber2.getData(),"PruebaCanal2");
+        Assert.assertNotEquals( subscriber3.getData(),"PruebaCanal2");
+        Assert.assertEquals( subscriber4.getData(),"PruebaCanal2");
     }
 }
