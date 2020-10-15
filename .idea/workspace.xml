@@ -23,10 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7bb2903c-6560-47e3-832d-8b4ba8921a3a" name="Default Changelist" comment="tests Basicos revisar funciones">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lab9/MessageBroker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab9/MessageBroker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lab9/Publisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab9/Publisher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lab9/Subscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab9/Subscriber.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

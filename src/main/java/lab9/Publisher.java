@@ -2,12 +2,12 @@ package lab9;
 
 public class Publisher {
 
-    String mensaje;
+    String message;
     String canal;
 
-    public void publish(String mensaje, String canal) {
+    public void publish(String message, String canal) {
         MessageBroker messageBroker = MessageBroker.getInstance();
-        messageBroker.notifySubscriber(mensaje, canal);
+        messageBroker.notifySubscriber(message, canal);
     }
 
 }
