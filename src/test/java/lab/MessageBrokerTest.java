@@ -1,4 +1,4 @@
-package lab9;
+package lab;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

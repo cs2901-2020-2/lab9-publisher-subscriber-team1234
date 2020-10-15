@@ -1,4 +1,4 @@
-package lab9;
+package lab;
 import java.util.HashMap;
 import java.util.List;
 
@@ -6,8 +6,6 @@ public class MessageBroker {
     private static MessageBroker instance;
     private HashMap<String, List<Subscriber>> subscribers = new HashMap<>();
     private static int semaphore = 0;
-    private MessageBroker (){};
-
 
     public void registerSubscriber (Subscriber s, String channel) {
         subscribers.get(channel).add(s);
@@ -24,7 +22,7 @@ public class MessageBroker {
         }
     }
 
-    private synchronized static int increaseSemaphore () {
+    private static synchronized int increaseSemaphore () {
         int prev = semaphore;
         semaphore++;
         return prev;
