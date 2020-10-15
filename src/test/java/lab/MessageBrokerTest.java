@@ -8,18 +8,24 @@ public class MessageBrokerTest {
     @Test
     public void testSubscriberSingleThread(){
         Subscriber subscriber1 = new Subscriber("sub1");
+        Subscriber subscriber3 = new Subscriber("sub3");
         Publisher publisher1 = new Publisher();
         MessageBroker messageBroker = MessageBroker.getInstance();
 
         subscriber1.subscribe("Canal1");
-        publisher1.publish("DataPrueba1", "Canal1");
+        Assert.assertTrue(publisher1.publish("DataPrueba1", "Canal1"));
 
         Assert.assertEquals(subscriber1.getData(),"DataPrueba1");
 
-        messageBroker.removeSubscriber(subscriber1, "Canal1");
-        publisher1.publish("DataPrueba2", "Canal1");
+        Assert.assertTrue(messageBroker.removeSubscriber(subscriber1, "Canal1"));
+
+        Assert.assertTrue(publisher1.publish("DataPrueba2", "Canal1"));
 
         Assert.assertNotEquals(subscriber1.getData(),"DataPrueba2");
+
+        Assert.assertFalse(publisher1.publish("DataPrueba2", "Canal10"));
+
+        Assert.assertFalse(messageBroker.removeSubscriber(subscriber3,"Canal3"));
     }
 
     @Test

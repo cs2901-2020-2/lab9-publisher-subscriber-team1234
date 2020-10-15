@@ -16,17 +16,21 @@ public class MessageBroker {
         subscribers.get(channel).add(s);
     }
 
-    public synchronized void removeSubscriber (Subscriber s, String channel) {
-        subscribers.get(channel).remove(s);
+    public synchronized boolean removeSubscriber (Subscriber s, String channel) {
+        if (subscribers.containsKey(channel)) {
+            subscribers.get(channel).remove(s);
+            return true;
+        }else return false;
     }
 
-    public synchronized void notifySubscriber (String message, String channel) {
+    public boolean notifySubscriber (String message, String channel) {
         if (subscribers.containsKey(channel)){
             for(Subscriber subs : subscribers.get(channel)){
                 subs.setData(message);
                 subs.displayMessage();
             }
-        }
+            return true;
+        }else return false;
     }
 
     private static synchronized int increaseSemaphore () {
@@ -35,7 +39,7 @@ public class MessageBroker {
         return prev;
     }
 
-    public synchronized static MessageBroker getInstance() {
+    public static MessageBroker getInstance() {
         if (increaseSemaphore () == 0)
             instance = new MessageBroker();
         return instance;
