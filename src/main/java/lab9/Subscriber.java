@@ -17,6 +17,10 @@ public class Subscriber {
         messageBroker.registerSubscriber(this, channel);
     }
 
+    public void setData(String dataTo){
+        data = dataTo;
+    }
+
     public String getData(){
         return data;
     }

@@ -1,12 +1,10 @@
 package lab9;
 import java.util.HashMap;
 import java.util.List;
-import java.util.ArrayList;
-import java.util.Map;
 
 public class MessageBroker {
     private static MessageBroker instance;
-    private HashMap<String, List<Subscriber>> subscribers = new HashMap<String, List<Subscriber>>();
+    private HashMap<String, List<Subscriber>> subscribers = new HashMap<>();
     private static int semaphore = 0;
     private MessageBroker (){};
 
@@ -21,6 +19,7 @@ public class MessageBroker {
 
     public void notifySubscriber (String message, String channel) {
         for(Subscriber subs : subscribers.get(channel)){
+            subs.setData(message);
             subs.displayMessage();
         }
     }
