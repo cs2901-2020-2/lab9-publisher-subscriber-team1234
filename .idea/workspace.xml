@@ -23,7 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7bb2903c-6560-47e3-832d-8b4ba8921a3a" name="Default Changelist" comment="tests Basicos revisar funciones">
-      <change beforePath="$PROJECT_DIR$/src/main/java/lab9/Publisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab9/Publisher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab9-publisher-subscriber-team1234.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lab9-publisher-subscriber-team1234.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/lab9/MessageBrokerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/lab9/MessageBrokerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/lab9/MultithreadMessageBrokerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/lab9/MultithreadMessageBrokerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +45,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/java" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />

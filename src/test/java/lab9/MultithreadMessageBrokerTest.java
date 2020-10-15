@@ -15,12 +15,12 @@ public class MultithreadMessageBrokerTest {
         subscriber1.subscribe("Canal1");
         publisher1.publish("DataPrueba1", "Canal1");
 
-        Assert.assertEquals("DataPrueba1", subscriber1.getData());
+        Assert.assertEquals(subscriber1.getData(),"DataPrueba1");
 
         messageBroker.removeSubscriber(subscriber1, "Canal1");
         publisher1.publish("DataPrueba2", "Canal1");
 
-        Assert.assertNotEquals("DataPrueba2", subscriber1.getData());
+        Assert.assertNotEquals(subscriber1.getData(),"DataPrueba2");
     }
 
     @Test(threadPoolSize = 500, invocationCount = 500)
@@ -38,16 +38,16 @@ public class MultithreadMessageBrokerTest {
         subscriber4.subscribe("Canal2");
 
         publisher1.publish("PruebaCanal1", "Canal1");
-        Assert.assertEquals("PruebaCanal1", subscriber1.getData());
-        Assert.assertEquals("PruebaCanal1", subscriber2.getData());
-        Assert.assertEquals("PruebaCanal1", subscriber3.getData());
-        Assert.assertNotEquals("PruebaCanal1", subscriber4.getData());
+        Assert.assertEquals( subscriber1.getData(),"PruebaCanal1");
+        Assert.assertEquals( subscriber2.getData(),"PruebaCanal1");
+        Assert.assertEquals( subscriber3.getData(),"PruebaCanal1");
+        Assert.assertNotEquals( subscriber4.getData(),"PruebaCanal1");
 
         publisher1.publish("PruebaCanal1", "Canal2");
 
-        Assert.assertNotEquals("PruebaCanal1", subscriber1.getData());
-        Assert.assertNotEquals("PruebaCanal1", subscriber2.getData());
-        Assert.assertNotEquals("PruebaCanal1", subscriber3.getData());
-        Assert.assertEquals("PruebaCanal1", subscriber4.getData());
+        Assert.assertNotEquals( subscriber1.getData(),"PruebaCanal1");
+        Assert.assertNotEquals( subscriber2.getData(),"PruebaCanal1");
+        Assert.assertNotEquals( subscriber3.getData(),"PruebaCanal1");
+        Assert.assertEquals( subscriber4.getData(),"PruebaCanal1");
     }
 }
