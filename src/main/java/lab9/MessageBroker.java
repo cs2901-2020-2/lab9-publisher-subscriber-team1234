@@ -16,7 +16,10 @@ public class MessageBroker {
         subscribers.get(channel).remove(s);
     }
     public static void notifySubscribers (String message, String channel) {
-        subscribers.get(channel).forEach(displayMessage );
+        List<Subscriber> temp = subscribers.get(channel);
+        for (Subscriber it : temp) {
+            it.displayMessage (message);
+        }
     }
 
     private synchronized static int increaseSemaphore () {
