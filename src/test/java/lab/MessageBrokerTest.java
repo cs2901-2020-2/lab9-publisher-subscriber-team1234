@@ -42,12 +42,12 @@ public class MessageBrokerTest {
         Assert.assertEquals( subscriber3.getData(),"PruebaCanal1");
         Assert.assertNotEquals( subscriber4.getData(),"PruebaCanal1");
 
-        publisher1.publish("PruebaCanal1", "Canal2");
+        publisher1.publish("PruebaCanal2", "Canal2");
 
-        Assert.assertNotEquals( subscriber1.getData(),"PruebaCanal1");
-        Assert.assertNotEquals( subscriber2.getData(),"PruebaCanal1");
-        Assert.assertNotEquals( subscriber3.getData(),"PruebaCanal1");
-        Assert.assertEquals( subscriber4.getData(),"PruebaCanal1");
+        Assert.assertNotEquals( subscriber1.getData(),"PruebaCanal2");
+        Assert.assertNotEquals( subscriber2.getData(),"PruebaCanal2");
+        Assert.assertNotEquals( subscriber3.getData(),"PruebaCanal2");
+        Assert.assertEquals( subscriber4.getData(),"PruebaCanal2");
     }
 
     @Test
